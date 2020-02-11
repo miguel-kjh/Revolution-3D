@@ -18,9 +18,17 @@ public class LineOfPoints {
   }
   
   public void removeLastLine(){
-    if(listOfPoints.size() > 1){
+    if(listOfPoints.size() > 0){
       listOfPoints.remove(listOfPoints.get(listOfPoints.size() - 1));
-      listOfPoints.remove(listOfPoints.get(listOfPoints.size() - 2));
     }
+  }
+  
+  public Point getLast(){
+    if(listOfPoints.size() == 0) return null;
+    return listOfPoints.get(listOfPoints.size()-1);
+  }
+  
+  public ArrayList<Point> getLine(){
+    return listOfPoints;
   }
 }

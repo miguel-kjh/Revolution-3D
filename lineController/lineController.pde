@@ -1,14 +1,37 @@
 LineOfPoints lp;
+boolean drawPosibleLine = false;
+boolean defineFigure = false;
+CreateFigure figure;
+float viewFigureZ = 0;
 
 void setup(){
-  size(500,500, P3D);
+  size(600,600, P3D);
+  surface.setTitle("Revolution 3D");
   lp = new LineOfPoints();
+  figure = new CreateFigure();
 }
 
 void draw(){
   background(0);
-  paintMiddleLine();
-  lp.drawLine();
+  if(!defineFigure){
+    paintMiddleLine();
+    if(drawPosibleLine){
+      paintPosibleLine();
+    }
+    lp.drawLine();
+  } else {
+    translate(mouseX,mouseY,viewFigureZ);
+    paintFigure();
+  }
+}
+
+void paintFigure(){
+  ArrayList<Point> p  = lp.getLine();
+  figure.starDraw(118,225,2);
+  for(Point point:p){
+    figure.defineVertex(point);
+  }
+  figure.createFigure();
 }
 
 void paintMiddleLine(){
@@ -16,16 +39,48 @@ void paintMiddleLine(){
   line(width/2,0, width/2, height);
 }
 
-void mouseClicked(){
-  lp.addPoint(new Point(mouseX,mouseY));
+void paintPosibleLine(){
+  Point point = lp.getLast();
+  if(point != null) line(point.x,point.y,getMouseX(),mouseY);
+}
+
+void mousePressed(){
+  if(!defineFigure) drawPosibleLine = true;
+}
+
+void mouseReleased(){
+  if(!defineFigure){
+    drawPosibleLine = false;
+    lp.addPoint(new Point(getMouseX(),mouseY));
+  }
+}
+
+float getMouseX(){
+  float mousePosX = mouseX;
+  if(mouseX < width/2) mousePosX = width/2;
+  return mousePosX;
 }
 
 void keyPressed(){
-  if(key == 'r' || key == 'R'){
+  if(!defineFigure && (key == 'r' || key == 'R')){
     lp.removeLine();
   }
-  if(key == 'l' || key == 'L'){
+  if(!defineFigure && (key == 'l' || key == 'L')){
     lp.removeLastLine();
   }
+  if(keyCode == ENTER){
+    defineFigure = true;
+  }
   
+}
+
+void mouseWheel(MouseEvent event) {
+  if(defineFigure){
+    float e = event.getCount();
+    if(e < 0){
+      viewFigureZ -= 40;
+    } else {
+      viewFigureZ += 40;
+    }
+  }
 }
