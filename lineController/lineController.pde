@@ -29,7 +29,7 @@ void paintFigure(){
   ArrayList<Point> p  = lp.getLine();
   figure.starDraw(118,225,2);
   for(Point point:p){
-    figure.defineVertex(point);
+    figure.defineVertex(point.getTranslate());
   }
   figure.createFigure();
 }
@@ -68,8 +68,18 @@ void keyPressed(){
   if(!defineFigure && (key == 'l' || key == 'L')){
     lp.removeLastLine();
   }
-  if(keyCode == ENTER){
+  if(defineFigure && (key == 'w' || key == 'W')){
+    viewFigureZ -= 40;
+  }
+  if(defineFigure && (key == 's' || key == 'S')){
+    viewFigureZ += 40;
+  }
+  if(!defineFigure && keyCode == ENTER){
     defineFigure = true;
+  }
+  if(defineFigure  && (key == 'f' || key == 'F')){
+    defineFigure = false;
+    lp.removeLine();
   }
   
 }

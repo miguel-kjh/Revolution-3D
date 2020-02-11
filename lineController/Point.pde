@@ -6,4 +6,8 @@ public class Point {
     this.y = y;
     this.z = 0;
   }
+  
+  public Point getTranslate(){
+    return new Point(x - width/2,y);
+  }
 }
