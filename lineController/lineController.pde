@@ -26,11 +26,8 @@ void draw(){
 }
 
 void paintFigure(){
-  ArrayList<Point> p  = lp.getLine();
   figure.starDraw(118,225,2);
-  for(Point point:p){
-    figure.defineVertex(point.getTranslate());
-  }
+  figure.defineVertex(lp.getLine());
   figure.createFigure();
 }
 
