@@ -30,7 +30,7 @@ public class CreateFigure {
   }
   
   public void createFigure(){
-    figure.endShape(CLOSE);
+    figure.endShape();
     shape(figure);
   }
   

@@ -80,6 +80,7 @@ void keyPressed(){
     defineFigure = false;
     lp.removeLine();
     figure = new CreateFigure();
+    viewFigureZ = 0;
   }
   
 }
