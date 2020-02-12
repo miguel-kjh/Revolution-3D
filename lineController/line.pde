@@ -6,15 +6,17 @@ public class LineOfPoints {
   }
   
   public void drawLine(){
+    int dimX = 5;
+    int dimY = 5;
     if(listOfPoints.size() > 0){
         Point initialPoint = listOfPoints.get(0);
-        ellipse(initialPoint.x,initialPoint.y,10,10);
+        ellipse(initialPoint.x,initialPoint.y,dimX,dimY);
     }
     for(int index = 0; index < listOfPoints.size() - 1; index++){
         Point firstPoint = listOfPoints.get(index);
         Point secondPoint = listOfPoints.get(index+1);
-        ellipse(firstPoint.x,firstPoint.y,10,10);
-        ellipse(secondPoint.x,secondPoint.y,10,10);
+        ellipse(firstPoint.x,firstPoint.y,dimX,dimY);
+        ellipse(secondPoint.x,secondPoint.y,dimX,dimX);
         line(firstPoint.x,firstPoint.y,secondPoint.x,secondPoint.y);
     }
   }

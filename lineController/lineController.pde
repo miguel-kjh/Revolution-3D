@@ -38,7 +38,9 @@ void paintMiddleLine(){
 
 void paintPosibleLine(){
   Point point = lp.getLast();
-  if(point != null) line(point.x,point.y,getMouseX(),mouseY);
+  if(point != null){
+    line(point.x,point.y,getMouseX(),mouseY);
+  }
 }
 
 void mousePressed(){
@@ -77,6 +79,7 @@ void keyPressed(){
   if(defineFigure  && (key == 'f' || key == 'F')){
     defineFigure = false;
     lp.removeLine();
+    figure = new CreateFigure();
   }
   
 }
