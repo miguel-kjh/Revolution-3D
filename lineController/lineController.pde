@@ -1,8 +1,11 @@
 LineOfPoints lp;
 boolean drawPosibleLine = false;
 boolean defineFigure = false;
+boolean userMoveMouse = true; 
 CreateFigure figure;
 float viewFigureZ = 0;
+StarMenu startMenu = new StarMenu();
+Menu keyMenu = new KeyMenu();
 
 void setup(){
   size(600,600, P3D);
@@ -13,6 +16,19 @@ void setup(){
 
 void draw(){
   background(0);
+  if(startMenu.hasToBePainted()){
+    startMenu.paintMenu();
+    if(startMenu.nextMenuKey()){
+      keyMenu.allowToPaint();
+    } else {
+      keyMenu.prohibitPainting();
+    }
+    return;
+  }
+  if(keyMenu.hasToBePainted()){
+    keyMenu.paintMenu();
+    return;
+  }
   if(!defineFigure){
     paintMiddleLine();
     if(drawPosibleLine){
@@ -20,9 +36,15 @@ void draw(){
     }
     lp.drawLine();
   } else {
-    translate(mouseX,mouseY,viewFigureZ);
+    moveFigure();
     paintFigure();
   }
+}
+
+void moveFigure(){
+  translate(width/2,height/2,viewFigureZ);
+  rotateX(mouseY*PI/(width/2));
+  rotateY(mouseX*PI/(height/2));
 }
 
 void paintFigure(){
@@ -60,11 +82,15 @@ float getMouseX(){
   return mousePosX;
 }
 
+boolean anyMenuActive(){
+  return startMenu.hasToBePainted();
+}
+
 void keyPressed(){
-  if(!defineFigure && (key == 'r' || key == 'R')){
+  if(!defineFigure && !anyMenuActive() && (key == 'r' || key == 'R')){
     lp.removeLine();
   }
-  if(!defineFigure && (key == 'l' || key == 'L')){
+  if(!defineFigure && !anyMenuActive() && (key == 'l' || key == 'L')){
     lp.removeLastLine();
   }
   if(defineFigure && (key == 'w' || key == 'W')){
@@ -73,14 +99,30 @@ void keyPressed(){
   if(defineFigure && (key == 's' || key == 'S')){
     viewFigureZ += 40;
   }
-  if(!defineFigure && keyCode == ENTER){
+  if(!defineFigure && !anyMenuActive() && (key == 'c' || key == 'C')){
     defineFigure = true;
   }
-  if(defineFigure  && (key == 'f' || key == 'F')){
-    defineFigure = false;
-    lp.removeLine();
-    figure = new CreateFigure();
-    viewFigureZ = 0;
+  if(startMenu.hasToBePainted() && keyCode == ENTER){
+    startMenu.prohibitPainting();
+  }
+  if(startMenu.hasToBePainted() && keyCode == RIGHT){
+    startMenu.chooseKey();
+  }
+  if(startMenu.hasToBePainted() && keyCode == LEFT){
+    startMenu.chooseStart();
+  }
+  if(key == 'f' || key == 'F'){
+    if(keyMenu.hasToBePainted()){
+      keyMenu.prohibitPainting();
+      startMenu.allowToPaint();
+    } else if(defineFigure){
+      defineFigure = false;
+      lp.removeLine();
+      figure = new CreateFigure();
+      viewFigureZ = 0;
+    } else if(!startMenu.hasToBePainted() && !keyMenu.hasToBePainted()){
+      startMenu.allowToPaint();
+    }
   }
   
 }
