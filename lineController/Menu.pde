@@ -75,17 +75,20 @@ class KeyMenu implements Menu{
     textAlign(CENTER,CENTER);
     textSize(20);
     int dim = 30;
-    paintKey(width * 0.10,height * 0.10, 'F',dim);
-    text("to return",(width+dim) * 0.40,(height+dim) * 0.10);
+    paintKey(width * 0.20,height * 0.10, 'F',dim);
+    text("to return",(width+dim)/2,(height+dim) * 0.10);
     
-    paintKey(width * 0.10,height * 0.20, 'C',dim);
-    text("to create",(width+dim) * 0.40,(height+dim) * 0.20);
+    paintKey(width * 0.20,height * 0.20, 'C',dim);
+    text("to create",(width+dim)/2,(height+dim) * 0.20);
     
-    paintKey(width * 0.10,height * 0.30, 'W',dim);
-    text("to zoom out",(width+dim) * 0.40,(height+dim) * 0.30);
+    paintKey(width * 0.20,height * 0.30, 'W',dim);
+    text("to zoom out",(width+dim)/2,(height+dim) * 0.30);
     
-    paintKey(width * 0.10,height * 0.40, 'S',dim);
-    text("to bring the figure closer",(width+dim) * 0.40,(height+dim) * 0.40);
+    paintKey(width * 0.20,height * 0.40, 'S',dim);
+    text("to bring the figure closer",(width+dim)/2,(height+dim) * 0.40);
+    
+    text("You can control the zoom of",width * 0.50,height * 0.60);
+    text("the figure with the mouse wheel too",width * 0.50,height * 0.70);
     fill(255);
     
   }
