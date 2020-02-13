@@ -26,6 +26,7 @@ public class CreateFigure {
         float nextPointZ = nextPoint.x*sin(angle) + nextPoint.z*cos(angle);
         figure.vertex(nextPointX,nextPoint.y,nextPointZ);
       }
+      figure.vertex(nextPoint.x,nextPoint.y,nextPoint.z);
     }
   }
   

@@ -31,6 +31,7 @@ void draw(){
   }
   if(!defineFigure){
     paintMiddleLine();
+    paintBigX();
     if(drawPosibleLine){
       paintPosibleLine();
     }
@@ -43,8 +44,8 @@ void draw(){
 
 void moveFigure(){
   translate(width/2,height/2,viewFigureZ);
-  rotateX(mouseY*PI/(width/2));
-  rotateY(mouseX*PI/(height/2));
+  rotateX(mouseY*PI/(width/4));
+  rotateY(mouseX*PI/(height/4));
 }
 
 void paintFigure(){
@@ -56,6 +57,12 @@ void paintFigure(){
 void paintMiddleLine(){
   stroke(255);
   line(width/2,0, width/2, height);
+}
+
+void paintBigX(){
+  stroke(255);
+  line(0,0, width/2, height);
+  line(0,height, width/2, 0);
 }
 
 void paintPosibleLine(){

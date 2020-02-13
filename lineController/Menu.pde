@@ -28,7 +28,8 @@ class StarMenu implements Menu{
     noFill();
     translate(width/2, height/2);
     rotateX(mouseY*PI/(width/2));
-    rotateY(-mouseX*PI/(height/2));
+    rotateY(mouseX*PI/(height/2));
+    stroke(255);
     fill(118);
     sphere(100);
   }
@@ -87,13 +88,22 @@ class KeyMenu implements Menu{
     paintKey(width * 0.20,height * 0.40, 'S',dim);
     text("to bring the figure closer",(width+dim)/2,(height+dim) * 0.40);
     
-    text("You can control the zoom of",width * 0.50,height * 0.60);
-    text("the figure with the mouse wheel too",width * 0.50,height * 0.70);
-    fill(255);
+    text("You can control the zoom of",width * 0.50,height * 0.50);
+    text("the figure with the mouse wheel too",width * 0.50,height * 0.60);
+    
+    text("Use the mouse and do click for make points",width * 0.50,height * 0.70);
+    
+    paintKey(width * 0.20,height * 0.80, 'R',dim);
+    text("remove all points",(width+dim)/2,(height+dim) * 0.78);
+    
+    paintKey(width * 0.20,height * 0.90, 'L',dim);
+    text("remove the last point created",(width+dim)/2,(height+dim) * 0.88);
+    
+    
     
   }
   
-  void paintKey(float x, float y,char letter, int dim){
+  private void paintKey(float x, float y,char letter, int dim){
     fill(0);
     rect(x,y,dim,dim);
     fill(255);
