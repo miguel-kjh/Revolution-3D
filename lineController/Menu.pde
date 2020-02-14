@@ -22,6 +22,8 @@ class StarMenu implements Menu{
     textSize(65);
     textAlign(CENTER,CENTER);
     text("Revolution 3D",width/2,height * 0.10);
+    textSize(18);
+    text("press enter, move with the arrow keys",width * 0.50,height * 0.80);
     textSize(30);
     text(textStart,width * 0.30,height * 0.90);
     text(textKey,width * 0.70,height * 0.90);

@@ -1,3 +1,6 @@
+//import gifAnimation.*;
+
+
 LineOfPoints lp;
 boolean drawPosibleLine = false;
 boolean defineFigure = false;
@@ -6,13 +9,26 @@ CreateFigure figure;
 float viewFigureZ = 0;
 StarMenu startMenu = new StarMenu();
 Menu keyMenu = new KeyMenu();
+/*int countFrame = 0;
+final int maxFrame = 5;
+GifMaker gif;*/
 
 void setup(){
   size(600,600, P3D);
   surface.setTitle("Revolution 3D");
   lp = new LineOfPoints();
   figure = new CreateFigure();
+  /*gif = new GifMaker(this,"animation.gif");
+  gif.setRepeat(0);*/
 }
+
+/*void setFrame(){
+  if(countFrame == maxFrame){
+      gif.addFrame();
+      countFrame = 0;
+  }
+  countFrame++;
+}*/
 
 void draw(){
   background(0);
@@ -23,10 +39,12 @@ void draw(){
     } else {
       keyMenu.prohibitPainting();
     }
+    //setFrame();
     return;
   }
   if(keyMenu.hasToBePainted()){
     keyMenu.paintMenu();
+    //setFrame();
     return;
   }
   if(!defineFigure){
@@ -40,6 +58,7 @@ void draw(){
     moveFigure();
     paintFigure();
   }
+  //setFrame();
 }
 
 void moveFigure(){
@@ -131,6 +150,9 @@ void keyPressed(){
       startMenu.allowToPaint();
     }
   }
+  /*if(key == 'g' || key == 'G'){
+    gif.finish();
+  }*/
   
 }
 
