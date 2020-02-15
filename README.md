@@ -22,7 +22,7 @@ Esta práctica consiste en diseñar figuras 3D mediante una serie de puntos en d
 
 ## Demostración
 <p align="center">
-   <img src="animation.gif" alt="animation"></img>
+   <img src="data/animation.gif" alt="animation"></img>
    <p align="center">Figura 1: Gif de demostración</p>
 </p>
 

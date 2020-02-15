@@ -1,5 +1,5 @@
 public class LineOfPoints {
-  ArrayList<Point> listOfPoints = new ArrayList();
+  private ArrayList<Point> listOfPoints = new ArrayList();
   
   public void addPoint(Point point){
     listOfPoints.add(point);
