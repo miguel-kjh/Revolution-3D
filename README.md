@@ -92,7 +92,9 @@ Así pues su algoritmo consistirá en ir iterando sobre los puntos de dos en dos
 
 ### Rotación
 
-La implementación de la rotación se encuentra dentro de la clase *CreateFigure*,  mediante el método *defineVertex*:
+La implementación de la rotación se encuentra dentro de la clase *CreateFigure* que crea una figura *PShape* y define un mallado *beginShape(TRIANGLE_STRIP)*.  
+
+Mediante el método *defineVertex* se van definiendo los vértices correspondientes y resolviendo el sistema de ecuaciones para una vuelta cartesiana completa, entre el ángulo 0 y el 2pi.
 
 ```java
  public void defineVertex(ArrayList<Point> listPoint){
@@ -113,7 +115,6 @@ La implementación de la rotación se encuentra dentro de la clase *CreateFigure
     }
   }
 ```
-Consistiría en ir definiendo los vértices correspondientes y resolviendo el sistema de ecuaciones en una vuelta cartesiana completa, entre el ángulo 0 y el 2pi.
 
 ## Eventos y Controles
 
