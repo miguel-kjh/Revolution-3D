@@ -5,7 +5,7 @@
 Miguel Ángel Medina Ramírez <br>
 Correo: miguel.medina108@alu.ulpgc.es
 
-## Indice
+## Índice
 1. [Introducción](#introducción)
 2. [Demostración](#demostración)
 3. [Dependencias](#dependencias)
@@ -17,7 +17,7 @@ Correo: miguel.medina108@alu.ulpgc.es
 6. [Bibliografía](#bibliografía)
 
 ## Introducción
-Esta práctica consiste en diseñar figuras 3D mediante una serie de puntos en dos dimensiones que simbolizan el perfil de las figuras a crear. Para ello se ha utilizado generación de mallas en triángulos mediante un algoritmo de rotación de los puntos iniciales. Asimismo, se ha añadido una serie de menús y controles de teclado para tener aspecto de aplicación.
+Esta práctica consiste en diseñar figuras 3D mediante una serie de puntos en dos dimensiones que simbolizan el perfil de las figuras a crear. Para ello se ha utilizado generación de mallas en triángulos, mediante un algoritmo de rotación de los puntos iniciales. Asimismo, se ha añadido una serie de menús y controles de teclado para tener aspecto de aplicación.
 
 
 ## Demostración
@@ -31,7 +31,7 @@ Para poder ejecutar y probar la práctica solamente se necesita clonar este repo
 - La librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica, en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
 
 ## Implementación
-Se ha optado por el patron arquitectónico **MVC**
+Se ha optado por el patrón arquitectónico **MVC**
 
 ### Diseño de clases
 <p align="center"> 
@@ -43,16 +43,17 @@ Donde la distribución de clase sería la siguiente:
 
 <dl>
   <dt>Vistas</dt>
-    <dd>Menu:interfaz común a todos los menu.</dd>
-    <dd>StartMenu:Menu de inicio.</dd>
-    <dd>KeyMenu:El menu de información de los controles.</dd>
+    <dd>Menu: interfaz común a todos los menu.</dd>
+    <dd>StartMenu:menú de inicio.</dd>
+    <dd>KeyMenu:El menú de información de los controles.</dd>
     <dd>CreateFigure:Crea la figura mediante puntos.</dd>
-    <dd>LineOfPoints:Dibuja la linea de puntos.</dd>
+    <dd>LineOfPoints:Dibuja la línea de puntos.</dd>
   <dt>Modelo</dt>
-    <dd>Point: implementa las coordenadas de un punto en el lienzo</dd>
+    <dd>Point: implementa las coordenadas de un punto en el lienzo.</dd>
   <dt>Controladores</dt>
-    <dd>LineController: para gestionar la applicación.</dd>
+    <dd>LineController: para gestionar la aplicación.</dd>
 </dl>
+
 
 ### Algoritmo de rotación
 La creación de objetos 3D resulta engorrosa al ser necesario disponer de mecanismos para
@@ -87,7 +88,7 @@ Si lo llevamos a 3D:
    <img src="data/ec_ma_3d.png" alt="matriz_2d"></img>
 </p>
 
-Así pues su algoritmo consistiria en ir iterando sobre los puntos de dos en dos, y resolver el sistema de ecuaciones para los dos puntos.Ademas de ir creando los vertices con los puntos correspondientes.
+Así pues su algoritmo consistirá en ir iterando sobre los puntos de dos en dos, y resolver el sistema de ecuaciones para los dos puntos.Además de ir creando los vértices correspondientes.
 
 ### Rotación
 
@@ -112,7 +113,7 @@ La implementación de la rotación se encuentra dentro de la clase *CreateFigure
     }
   }
 ```
-Consistiría en ir definiendo los vertices conrrespondientes y resolviendo el sistema de ecuaciones en una vuelta cartesiana completa, entre el angulo 0 y el 2pi.
+Consistiría en ir definiendo los vértices correspondientes y resolviendo el sistema de ecuaciones en una vuelta cartesiana completa, entre el ángulo 0 y el 2pi.
 
 ## Eventos y Controles
 
@@ -135,7 +136,7 @@ Consistiría en ir definiendo los vertices conrrespondientes y resolviendo el si
   </tr>
   <tr>
     <td>r</td>
-    <td>borrar toda la linea de puntos</td>
+    <td>borrar toda la línea de puntos</td>
   </tr>
   <tr>
     <td>l</td>
@@ -146,11 +147,11 @@ Consistiría en ir definiendo los vertices conrrespondientes y resolviendo el si
     <td>crear figura</td>
   </tr>
   <tr>
-    <td>felcha Right</td>
+    <td>flecha Right</td>
     <td>Elegir start</td>
   </tr>
   <tr>
-    <td>felcha Left</td>
+    <td>flecha Left</td>
     <td>Elegir control</td>
   </tr>
   <tr>
@@ -159,7 +160,7 @@ Consistiría en ir definiendo los vertices conrrespondientes y resolviendo el si
    </tr>
 </table>
 
-Se pude hacer uso de las ruedas del ratón para hacer zoom a la figura, además el ratón sirve también para rotarla. Los puntos se crean clicando con el ratón y moviendolo, si se mantien pulsado se puede ver la posible recta.
+Se puede hacer uso de las ruedas del ratón para hacer zoom a la figura, además el ratón sirve también para rotarla. Los puntos se crean clicando con el ratón y moviéndolo, si se mantiene pulsado se puede ver la posible recta.
 
 ## Bibliografía
 
