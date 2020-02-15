@@ -31,8 +31,28 @@ Para poder ejecutar y probar la práctica solamente se necesita clonar este repo
 - La librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica, en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
 
 ## Implementación
+Se ha optado por el patron arquitectónico **MVC**
 
 ### Diseño de clases
+<p align="center"> 
+   <img src="data/diagrama.png" alt="diagrama"></img>
+   <p align="center">Figura 2: Diagrama de clases</p>
+</p>
+
+Donde la distribución de clase sería la siguiente:
+
+<dl>
+  <dt>Vistas</dt>
+    <dd>Menu:interfaz común a todos los menu.</dd>
+    <dd>StartMenu:Menu de inicio.</dd>
+    <dd>KeyMenu:El menu de información de los controles.</dd>
+    <dd>CreateFigure:Crea la figura mediante puntos.</dd>
+    <dd>LineOfPoints:Dibuja la linea de puntos.</dd>
+  <dt>Modelo</dt>
+    <dd>Point: implementa las coordenadas de un punto en el lienzo</dd>
+  <dt>Controladores</dt>
+    <dd>LineController: para gestionar la applicación.</dd>
+</dl>
 
 ### Algoritmo de rotación
 La creación de objetos 3D resulta engorrosa al ser necesario disponer de mecanismos para
@@ -45,16 +65,27 @@ bien puede aproximar una curva plana (generalmente), que bien por sucesivas tras
 
 En dos dimensiones la rotación de un punto sobre el plano cartesiano se ilustra de la siguiente manera:
 
-**foto**
+<p align="center"> 
+   <img src="data/grafico.jpeg" alt="grafico_2d"></img>
+   <p align="center">Figura 3: Ejemplo de rotación</p>
+</p>
 
 Siguiendo la regla de la mano derecha, al rotar un ángulo θ el punto p con
 coordenadas (x1, y1), las coordenadas resultantes (x2, y2) tras la rotación se calculan de la siguiente forma:
 
-**ecuación**
+<p align="center"> 
+   <img src="data/ec_2d.png" alt="ecuación_2d"></img>
+</p>
+<p align="center"> 
+   <img src="data/ma_2d.png" alt="ecuación_2d"></img>
+</p>
+
 
 Si lo llevamos a 3D:
 
-**ecuación**
+<p align="center"> 
+   <img src="data/ec_ma_3d.png" alt="matriz_2d"></img>
+</p>
 
 Así pues su algoritmo consistiria en ir iterando sobre los puntos de dos en dos, y resolver el sistema de ecuaciones para los dos puntos.Ademas de ir creando los vertices con los puntos correspondientes.
 
