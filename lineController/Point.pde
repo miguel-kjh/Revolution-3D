@@ -15,12 +15,6 @@ public class Point {
     this.z = z;
   }
   
-  public void setPoints(float x,float y, float z){
-    this.x = x;
-    this.y = y;
-    this.z = z;
-  }
-  
   public Point getTranslate(){
     return new Point(x - width/2,y - height/2);
   }

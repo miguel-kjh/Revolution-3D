@@ -133,7 +133,7 @@ Mediante el método *defineVertex* se van definiendo los vértices correspondien
   </tr>
   <tr>
     <td>f</td>
-    <td>borrar ventana actual</td>
+    <td>borrar ventana actual y figuras</td>
   </tr>
   <tr>
     <td>r</td>
