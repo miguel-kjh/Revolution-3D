@@ -17,7 +17,6 @@ void setup(){
   size(600,600, P3D);
   surface.setTitle("Revolution 3D");
   lp = new LineOfPoints();
-  figure = new CreateFigure();
   /*gif = new GifMaker(this,"animation.gif");
   gif.setRepeat(0);*/
 }
@@ -68,6 +67,7 @@ void moveFigure(){
 }
 
 void paintFigure(){
+  figure = new CreateFigure();
   figure.starDraw(118,225,2);
   figure.defineVertex(lp.getLine());
   figure.createFigure();
@@ -109,7 +109,7 @@ float getMouseX(){
 }
 
 boolean anyMenuActive(){
-  return startMenu.hasToBePainted();
+  return startMenu.hasToBePainted() || keyMenu.hasToBePainted();
 }
 
 void keyPressed(){
@@ -125,7 +125,7 @@ void keyPressed(){
   if(defineFigure && (key == 's' || key == 'S')){
     viewFigureZ += 40;
   }
-  if(!defineFigure && !anyMenuActive() && (key == 'c' || key == 'C')){
+  if(!defineFigure && !anyMenuActive() && !lp.isEmpty() &&(key == 'c' || key == 'C')){
     defineFigure = true;
   }
   if(startMenu.hasToBePainted() && keyCode == ENTER){

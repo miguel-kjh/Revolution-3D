@@ -1,5 +1,7 @@
 public class Point {
-  float x,y,z;
+  float x;
+  float y;
+  float z;
   
   public Point(float x,float y){
     this.x = x;
@@ -8,6 +10,12 @@ public class Point {
   }
   
   public Point(float x,float y, float z){
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+  
+  public void setPoints(float x,float y, float z){
     this.x = x;
     this.y = y;
     this.z = z;

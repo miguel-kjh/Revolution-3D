@@ -79,7 +79,7 @@ class KeyMenu implements Menu{
     textSize(20);
     int dim = 30;
     paintKey(width * 0.20,height * 0.10, 'F',dim);
-    text("to return",(width+dim)/2,(height+dim) * 0.10);
+    text("to return or delete figures",(width+dim)/2,(height+dim) * 0.10);
     
     paintKey(width * 0.20,height * 0.20, 'C',dim);
     text("to create",(width+dim)/2,(height+dim) * 0.20);

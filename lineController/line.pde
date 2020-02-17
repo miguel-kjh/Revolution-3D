@@ -39,4 +39,8 @@ public class LineOfPoints {
   public ArrayList<Point> getLine(){
     return listOfPoints;
   }
+  
+  public boolean isEmpty(){
+    return listOfPoints.size() == 0;
+  }
 }
